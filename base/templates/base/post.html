@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block context %}
+
+    <h4>@{{ post.host }} {{ post.created }}</h4>
+    <h3>{{ post.body }}</h3>
+    <hr>
+    <hr>
+
+    <div>
+
+    {% for comment in comments %}
+
+        <h5>@{{ comment.host }} {{ comment.created |timesince}}</h5>
+        <h4>{{ comment.body }}</h4>
+
+        <hr>
+
+    {% endfor %}
+
+    </div>
+
+
+    {% if request.user.is_authenticated %}
+    <div class="comment-form">
+    <form method="post" action="">
+        {% csrf_token %}
+        <input type="text" name="body" placeholder="Comment here...">
+    </form>
+    </div>
+    {% endif %}
+
+{% endblock context %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevTwitter</title>
+</head>
+
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+</style>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="home-container">
+        <div>
+            <a href="{% url 'home' %}">
+                <h3>Home</h3>
+            </a>
+
+            <a>
+                <h3>Messages</h3>
+            </a>
+
+            <a>
+                <h3>Bookmarks</h3>
+            </a>
+
+            <a>
+                <h3>Profile</h3>
+            </a>
+
+            <a>
+                <h3>Tweet</h3>
+            </a>
+        </div>
+
+        <div>
+            {% block context %}
+
+            {% endblock context %}
+
+        </div>
+    </div>
+
+
+</body>
+</html>
